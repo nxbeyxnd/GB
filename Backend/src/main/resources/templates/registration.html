@@ -1,7 +1,5 @@
 <!doctype html>
-
 <html ng-app="app">
-
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -10,8 +8,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
     <script src="index.js"></script>
+    <title>Registration</title>
 </head>
-
 <body>
 <div class="top-nav navigation">
     <a class="item-header" href="/">Home</a>
@@ -20,33 +18,18 @@
 </div>
 <hr>
 <div class="container" ng-controller="indexController">
-    <h1 class="center">GeekBrains Shop</h1>
-
-    <h3>Cart:</h3>
-
-    <table class="table table-hover" cellpadding="0" cellspacing="0">
-        <tr ng-repeat="n in NewsList">
-            <td>{{p.title}}</td>
-            <td>{{p.price}}</td>
-            <td>
-                <!--                <button class="btn btn-danger" ng-click="deleteProductById(p.id)">Удалить товар</button>-->
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
-    <h3>Add new item</h3>
-    <form novalidate ng-submit="submitCreateNewProduct()">
+    <h1 class="center">Registration page</h1>
+    <form novalidate ng-submit="submitCreateNewUser()">
         <div class="form-group col-md-6">
-            <label for="newProductTitle">Title</label>
-            <input class="form-control" type="text" ng-model="newProduct.title" id="newProductTitle">
+            <label for="newUserEmail">Email</label>
+            <input class="form-control" type="email" ng-model="newUser.email" id="newUserEmail">
         </div>
         <div class="form-group col-md-6">
-            <label for="newProductPrice">Description</label>
-            <input class="form-control" type="text" ng-model="newProduct.price" id="newProductPrice">
+            <label for="newUserPass">Password</label>
+            <input class="form-control" type="password" ng-model="newUser.password" id="newUserPass">
         </div>
         <div>
-            <button class="btn btn-success" type="submit">Add</button>
+            <button class="btn-success btn" type="submit" >Register</button>
         </div>
     </form>
 </div>

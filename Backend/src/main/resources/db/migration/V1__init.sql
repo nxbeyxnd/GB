@@ -28,3 +28,8 @@ create table users_roles
 create
     unique index user_table_email_uindex
     on users (email);
+
+INSERT into roles(name)
+values
+       ('CLIENT'),
+       ('ADMIN')
