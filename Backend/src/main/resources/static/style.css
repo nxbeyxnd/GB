@@ -1,0 +1,16 @@
+.center{
+    text-align: center;
+}
+
+.navigation{
+    text-align: center;
+}
+
+.item-header{
+    background-color: rebeccapurple;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+.btn

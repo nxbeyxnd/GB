@@ -9,13 +9,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity(debug = true)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll()
-                .and().formLogin().defaultSuccessUrl("/")
+                .and().formLogin().loginPage("/signin")
+                .defaultSuccessUrl("/")
+                .permitAll()
                 .and().logout().logoutUrl("/logout")
                 .logoutSuccessUrl("/");
     }
