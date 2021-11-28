@@ -33,5 +33,6 @@ spring:
 
 # SpEL variables
 
-roles:
-  customer: CUSTOMER
+base:
+  roles:
+    customer: CUSTOMER

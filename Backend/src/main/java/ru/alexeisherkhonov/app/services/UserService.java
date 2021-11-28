@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 public class UserService {
-    @Value("${roles.customer}")
+    @Value("${base.roles.customer}")
     private String CUSTOMER;
 
     @Autowired

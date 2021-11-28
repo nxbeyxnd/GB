@@ -7,12 +7,17 @@ import ru.alexeisherkhonov.app.models.entities.Product;
 import ru.alexeisherkhonov.app.repositories.ProductRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
     @Autowired
     private ProductRepository productRepository;
+
+    public Optional<ProductDto> findById(Long id){
+        return productRepository.findById(id).map(ProductDto::new);
+    }
 
     public void saveOrUpdate(Product product){
         productRepository.save(product);
