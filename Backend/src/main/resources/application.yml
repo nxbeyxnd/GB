@@ -30,3 +30,8 @@ spring:
       enabled: true
       settings:
         web-allow-others: false
+
+# SpEL variables
+
+roles:
+  customer: CUSTOMER

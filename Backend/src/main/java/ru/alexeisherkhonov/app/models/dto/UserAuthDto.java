@@ -1,9 +1,9 @@
-package ru.alexeisherkhonov.app.dto;
+package ru.alexeisherkhonov.app.models.dto;
 
 import lombok.Data;
 
 @Data
-public class UserRegisterDto {
+public class UserAuthDto {
     private String email;
     private String password;
 }

@@ -1,0 +1,29 @@
+package ru.alexeisherkhonov.app.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.alexeisherkhonov.app.models.dto.ProductDto;
+import ru.alexeisherkhonov.app.models.entities.Product;
+import ru.alexeisherkhonov.app.repositories.ProductRepository;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class ProductService {
+    @Autowired
+    private ProductRepository productRepository;
+
+    public void saveOrUpdate(Product product){
+        productRepository.save(product);
+    }
+
+    public List<ProductDto> showAllProducts(){
+        return productRepository.findAll().stream().map(ProductDto::new).collect(Collectors.toList());
+    }
+
+    public void deleteProductById(Long id){
+        productRepository.deleteById(id);
+    }
+
+}

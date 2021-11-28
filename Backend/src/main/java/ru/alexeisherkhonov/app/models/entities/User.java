@@ -1,4 +1,4 @@
-package ru.alexeisherkhonov.app.entities;
+package ru.alexeisherkhonov.app.models.entities;
 
 import lombok.Data;
 

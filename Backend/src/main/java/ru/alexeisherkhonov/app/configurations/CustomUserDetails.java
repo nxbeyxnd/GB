@@ -3,8 +3,8 @@ package ru.alexeisherkhonov.app.configurations;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.alexeisherkhonov.app.entities.Role;
-import ru.alexeisherkhonov.app.entities.User;
+import ru.alexeisherkhonov.app.models.entities.Role;
+import ru.alexeisherkhonov.app.models.entities.User;
 
 import java.util.Collection;
 

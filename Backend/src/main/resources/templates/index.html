@@ -22,28 +22,35 @@
 <div class="container" ng-controller="indexController">
     <h1 class="center">GeekBrains Shop</h1>
 
-    <h3>Cart:</h3>
+    <h3>List of products:</h3>
 
     <table class="table table-hover" cellpadding="0" cellspacing="0">
-        <tr ng-repeat="n in NewsList">
+        <thead class="">
+        <tr>
+            <th>Title</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="p in ProductsList">
             <td>{{p.title}}</td>
-            <td>{{p.price}}</td>
+            <td>{{p.cost}}</td>
             <td>
-                <!--                <button class="btn btn-danger" ng-click="deleteProductById(p.id)">Удалить товар</button>-->
+                <button class="btn btn-danger" ng-click="submitDeleteProductById(p.id)">Удалить товар</button>
             </td>
         </tr>
         </tbody>
     </table>
 
-    <h3>Add new item</h3>
+    <h3>Add new product</h3>
     <form novalidate ng-submit="submitCreateNewProduct()">
         <div class="form-group col-md-6">
             <label for="newProductTitle">Title</label>
             <input class="form-control" type="text" ng-model="newProduct.title" id="newProductTitle">
         </div>
         <div class="form-group col-md-6">
-            <label for="newProductPrice">Description</label>
-            <input class="form-control" type="text" ng-model="newProduct.price" id="newProductPrice">
+            <label for="newProductCost">Description</label>
+            <input class="form-control" type="text" ng-model="newProduct.cost" id="newProductCost">
         </div>
         <div>
             <button class="btn btn-success" type="submit">Add</button>

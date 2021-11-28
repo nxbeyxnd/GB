@@ -1,8 +1,8 @@
-package ru.alexeisherkhonov.app.dto;
+package ru.alexeisherkhonov.app.models.dto;
 
 import lombok.Data;
-import ru.alexeisherkhonov.app.entities.Role;
-import ru.alexeisherkhonov.app.entities.User;
+import ru.alexeisherkhonov.app.models.entities.Role;
+import ru.alexeisherkhonov.app.models.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;

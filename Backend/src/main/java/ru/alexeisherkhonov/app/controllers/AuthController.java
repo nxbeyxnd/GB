@@ -3,9 +3,9 @@ package ru.alexeisherkhonov.app.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.alexeisherkhonov.app.dto.UserLoginDto;
-import ru.alexeisherkhonov.app.dto.UserPageDto;
-import ru.alexeisherkhonov.app.dto.UserRegisterDto;
+import ru.alexeisherkhonov.app.models.dto.UserAuthDto;
+import ru.alexeisherkhonov.app.models.dto.UserPageDto;
+import ru.alexeisherkhonov.app.models.dto.UserRegisterDto;
 import ru.alexeisherkhonov.app.services.UserService;
 
 @RestController
@@ -22,7 +22,7 @@ public class AuthController {
     }
 
     @PostMapping(value = "/login")
-    public UserPageDto getUserByLoginAndPass(@RequestBody UserLoginDto userLoginDto){
+    public UserPageDto getUserByLoginAndPass(@RequestBody UserAuthDto userLoginDto){
         return userService.findUserByEmailAndPassword(userLoginDto);
     }
 }

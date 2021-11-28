@@ -1,12 +1,13 @@
 package ru.alexeisherkhonov.app.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import ru.alexeisherkhonov.app.dto.UserLoginDto;
-import ru.alexeisherkhonov.app.dto.UserPageDto;
-import ru.alexeisherkhonov.app.dto.UserRegisterDto;
-import ru.alexeisherkhonov.app.entities.Role;
-import ru.alexeisherkhonov.app.entities.User;
+import ru.alexeisherkhonov.app.models.dto.UserAuthDto;
+import ru.alexeisherkhonov.app.models.dto.UserPageDto;
+import ru.alexeisherkhonov.app.models.dto.UserRegisterDto;
+import ru.alexeisherkhonov.app.models.entities.Role;
+import ru.alexeisherkhonov.app.models.entities.User;
 import ru.alexeisherkhonov.app.repositories.UserRepository;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.List;
 
 @Service
 public class UserService {
+    @Value("${roles.customer}")
+    private String CUSTOMER;
 
     @Autowired
     private UserRepository userRepository;
@@ -30,12 +33,13 @@ public class UserService {
         user.setEmail(userRegisterDto.getEmail());
         user.setPassword(userRegisterDto.getPassword());
         List<Role> roles = new ArrayList<>();
-        roles.add(roleService.findRoleByName("CLIENT"));
+        roles.add(roleService.findRoleByName(CUSTOMER));
+
         user.setRoles(roles);
         userRepository.save(user);
     }
 
-    public UserPageDto findUserByEmailAndPassword(UserLoginDto userLoginDto){
+    public UserPageDto findUserByEmailAndPassword(UserAuthDto userLoginDto){
         return new UserPageDto(userRepository.findUserByEmailAndPassword(userLoginDto.getEmail(), userLoginDto.getPassword()));
     }
 }

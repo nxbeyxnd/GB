@@ -14,6 +14,21 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
         });
     };
 
+    $scope.submitCreateNewProduct = function (){
+        $http.post(contextPath + '/products', $scope.newProduct)
+        .then(function (response){
+            $scope.fillTable();
+            $scope.newProduct = null;
+        })
+    }
+
+    $scope.submitDeleteProductById = function (id){
+        $http.delete(contextPath + '/products/' + id)
+            .then(function (response){
+                $scope.fillTable();
+            })
+    }
+
     $scope.submitCreateNewUser = function (){
         $http.post(contextPath + '/user/add', $scope.newUser)
             .then(function (response){
@@ -25,10 +40,13 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     $scope.findUserByLoginAndPass = function (){
         $http.post(contextPath + '/user/login', $scope.user)
             .then(function (response){
-                console.log($scope.user);
+                console.log(response);
                 $scope.user = null;
+                sessionStorage.setItem('user', response.data['email']);
             });
     };
+
+    //Todo add function which loading user page (sessionStorage)
 
     $scope.fillTable();
 });

@@ -1,7 +1,7 @@
 package ru.alexeisherkhonov.app.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.alexeisherkhonov.app.entities.Role;
+import ru.alexeisherkhonov.app.models.entities.Role;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
     Role findRoleByName(String name);
