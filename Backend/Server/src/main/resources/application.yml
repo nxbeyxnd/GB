@@ -1,0 +1,46 @@
+server:
+  port: 8888
+
+spring:
+  jpa:
+    show-sql: true
+#    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:mydatabase;MODE=PostgreSQL
+    username: root
+    password:
+
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: embedded
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://Users/aleksei/Desktop/Fun/GB spring/config-client
+
+
+
+  #
+#  redis:
+#    host: localhost
+#    port: 6379
+
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
+
+# SpEL variables
+
+base:
+  roles:
+    customer: CUSTOMER
