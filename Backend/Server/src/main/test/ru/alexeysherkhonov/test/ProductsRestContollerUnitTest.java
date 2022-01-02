@@ -20,7 +20,6 @@ public class ProductsRestContollerUnitTest {
     ProductService productService = Mockito.mock(ProductService.class);
     ProductController productController;
     List<ProductDto> mockProductList;
-    ProductDto mockProduct;
 
     @BeforeEach
     public void setUp() {
