@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://alexeisherkhonov.ru/app/endpoints"
+           targetNamespace="http://alexeisherkhonov.ru/app/endpoints" elementFormDefault="qualified">
+
+    <!-- find all products -->
+    <xs:element name="getProductsRequest">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getProductsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="products" type="tns:productResponse" nillable="true" minOccurs="0"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- find Product by ID-->
+    <xs:element name="getProductRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getProductResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="product" type="tns:productResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="productResponse">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="cost" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
