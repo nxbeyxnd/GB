@@ -1,6 +1,6 @@
-package ru.alexeysherkhonov.test;
+package ru.alexeysherkhonov.tests;
 /* 
-02.01.2022: Alexey created this file inside the package: ru.alexeysherkhonov.test 
+02.01.2022: Alexey created this file inside the package: ru.alexeysherkhonov.tests 
 */
 
 import org.junit.jupiter.api.Assertions;
@@ -15,8 +15,7 @@ import ru.alexeisherkhonov.app.services.ProductService;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ProductsRestContollerUnitTest {
-
+class ProductsRestControllerTest {
     ProductService productService = Mockito.mock(ProductService.class);
     ProductController productController;
     List<ProductDto> mockProductList;
